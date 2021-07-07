@@ -5,13 +5,24 @@ import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons"; /
 // misma variable dos veces
 
 const Rating = ({ rating }) => {
-  console.log({ rating });
   let stars = [];
   for (let i = 0; i < rating; i++) {
     stars.push(<FontAwesomeIcon icon={faStar} />);
   }
-  console.log(stars);
-  return <div className="product__rating">{stars}</div>;
+
+  const completeStars = () => {
+    let numberOfRegularStars = 5 - stars.length;
+    for (let i = 0; i < numberOfRegularStars; i++) {
+      stars.push(<FontAwesomeIcon icon={faStarRegular} />);
+    }
+    return stars;
+  };
+
+  return (
+    <div className="product__rating">
+      {stars.length == 5 ? stars : completeStars()}
+    </div>
+  );
 };
 
 export default Rating;

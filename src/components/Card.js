@@ -22,12 +22,7 @@ const Card = (props) => {
         </h3>
         <p>{props.type}</p>
         <h4>${props.price}</h4>
-        <p>
-          {props.rating}
-
-          {/* <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStarRegular} /> */}
-        </p>
+        <p>{props.rating}</p>
         <Rating key={props.rating} rating={props.rating}></Rating>
       </div>
     </article>
